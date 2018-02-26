@@ -9,17 +9,17 @@ const storage = multer.diskStorage({
         cb(null, './public/images/');
     },
 
-    /*  filename: (req, file, cb) => {
-         console.log('filename stuck');
-         cb(null, file.originalname)
-     } */
+    filename: (req, file, cb) => {
+        console.log('filename stuck');
+        cb(null, file.originalname)
+    }
 });
 
 const imageFileFilter = (req, file, cb) => {
-    /* if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
         return cb(new Error('You can upload only image files!'), false);
     }
- */
+
     console.log('filefilter stuck');
     cb(null, true);
 };
